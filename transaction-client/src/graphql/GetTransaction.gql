@@ -1,0 +1,12 @@
+
+query {
+    transactions {
+        id
+        description
+        date
+        amount
+        currency
+        status
+    }
+}
+    

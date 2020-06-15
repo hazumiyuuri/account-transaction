@@ -16,6 +16,91 @@
         </p>
       </div>
       <div>
+        <form v-on:submit.prevent="addTransaction()" class="w-full max-w-lg">
+          <div class="flex flex-wrap mb-6">
+            <div class="w-full md:w-1/2 mb-3 pr-3">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Description
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-first-name"
+                type="text"
+                placeholder="Description"
+                v-model="newTransaction.description"
+              />
+              <!-- <p class="text-red-500 text-xs italic">
+                    Please fill out this field.
+                  </p> -->
+            </div>
+            <div class="w-full md:w-1/2 mb-3 pl-3">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-last-name"
+              >
+                Montant
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                type="number"
+                placeholder="Amount"
+                step="0.01"
+                v-model="newTransaction.amount"
+              />
+            </div>
+            <div class="w-full md:w-1/2 mb-3 pr-3">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-last-name"
+              >
+                Currency
+              </label>
+              <select
+                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-state"
+                v-model="newTransaction.currency"
+              >
+                <option disabled selected value=""
+                  >----Select Currency----</option
+                >
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="MGA">MGA</option>
+              </select>
+            </div>
+            <div class="w-full md:w-1/2 mb-3 pl-3">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-last-name"
+              >
+                Status
+              </label>
+              <select
+                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-state"
+                v-model="newTransaction.status"
+              >
+                <option disabled selected value=""
+                  >----Select Status----</option
+                >
+                <option value="PENDING">PENDING</option>
+                <option value="CANCELED">CANCELED</option>
+                <option value="COMPLETED">COMPLETED</option>
+              </select>
+            </div>
+            <div class="w-full mb-3">
+              <button
+                class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+              >
+                Enregistrer
+              </button>
+            </div>
+          </div>
+        </form>
         <table class="table-auto">
           <thead>
             <tr>
@@ -45,216 +130,41 @@
           </tbody>
         </table>
       </div>
-      <!-- <div class="flex flex-wrap -m-4">
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-            <img
-              class="h-40 rounded w-full object-cover object-center mb-6"
-              src="https://dummyimage.com/720x400"
-              alt="content"
-            />
-            <h3
-              class="tracking-widest text-indigo-500 text-xs font-medium title-font"
-            >
-              SUBTITLE
-            </h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
-              Chichen Itza
-            </h2>
-            <p class="leading-relaxed text-base">
-              Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-              hexagon disrupt edison bulbche.
-            </p>
-          </div>
-        </div>
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-            <img
-              class="h-40 rounded w-full object-cover object-center mb-6"
-              src="https://dummyimage.com/721x401"
-              alt="content"
-            />
-            <h3
-              class="tracking-widest text-indigo-500 text-xs font-medium title-font"
-            >
-              SUBTITLE
-            </h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
-              Colosseum Roma
-            </h2>
-            <p class="leading-relaxed text-base">
-              Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-              hexagon disrupt edison bulbche.
-            </p>
-          </div>
-        </div>
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-            <img
-              class="h-40 rounded w-full object-cover object-center mb-6"
-              src="https://dummyimage.com/722x402"
-              alt="content"
-            />
-            <h3
-              class="tracking-widest text-indigo-500 text-xs font-medium title-font"
-            >
-              SUBTITLE
-            </h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
-              Great Pyramid of Giza
-            </h2>
-            <p class="leading-relaxed text-base">
-              Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-              hexagon disrupt edison bulbche.
-            </p>
-          </div>
-        </div>
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-            <img
-              class="h-40 rounded w-full object-cover object-center mb-6"
-              src="https://dummyimage.com/723x403"
-              alt="content"
-            />
-            <h3
-              class="tracking-widest text-indigo-500 text-xs font-medium title-font"
-            >
-              SUBTITLE
-            </h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
-              San Francisco
-            </h2>
-            <p class="leading-relaxed text-base">
-              Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-              hexagon disrupt edison bulbche.
-            </p>
-          </div>
-        </div>
-      </div> -->
     </div>
   </section>
 </template>
 
 <script>
+import ADD_TRANSACTION from "@/graphql/AddTransaction.gql";
+import GET_TRANSACTION from "@/graphql/GetTransaction.gql";
+
 export default {
-  name: "HelloWorld",
+  name: "Dashboard",
   data() {
     return {
-      transactions: [
-        {
-          id: 1,
-          date: "13/09/2018",
-          description: "LIGNE WEB SERVIC",
-          amount: -0.99,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 2,
-          date: "30/08/2018",
-          description: "DNH*GODADDY.COM",
-          amount: -1.04,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 3,
-          date: "26/02/2018",
-          description: "BNI GAB 67 CAE ANKORON - ATM",
-          amount: -48.47,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 4,
-          date: "14/02/2018",
-          description: "BNI GAB 2 ANTSAKAVIRO - ATM",
-          amount: -108.82,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 5,
-          date: "14/02/2018",
-          description: "BNI GAB 2 ANTSAKAVIRO - ATM",
-          amount: -108.82,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 6,
-          date: "14/02/2018",
-          description: "BNI GAB 2 ANTSAKAVIRO - ATM",
-          amount: -108.82,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 7,
-          date: "14/02/2018",
-          description: "BNI GAB 2 ANTSAKAVIRO - ATM",
-          amount: -108.82,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 8,
-          date: "14/02/2018",
-          description: "BNI GAB 2 ANTSAKAVIRO - ATM",
-          amount: -108.82,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 9,
-          date: "14/02/2018",
-          description: "BNI GAB 2 ANTSAKAVIRO - ATM",
-          amount: -108.82,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 10,
-          date: "13/02/2018",
-          description: "BNI GAB 28 ANTSAKAVIRO",
-          amount: -0.8,
-          currency: "EUR",
-          status: "Canceled"
-        },
-        {
-          id: 11,
-          date: "13/02/2018",
-          description: "BNI GAB 2 ANTSAKAVIRO",
-          amount: -0.8,
-          currency: "EUR",
-          status: "Canceled"
-        },
-        {
-          id: 12,
-          date: "13/02/2018",
-          description: "BNI GAB 2 ANTSAKAVIRO",
-          amount: -0.8,
-          currency: "EUR",
-          status: "Canceled"
-        },
-        {
-          id: 13,
-          date: "13/02/2018",
-          description: "OJA - XX-807131  (Wirecard)",
-          amount: 705,
-          currency: "EUR",
-          status: "Completed"
-        },
-        {
-          id: 14,
-          date: "01/01/2018",
-          description: "BNI GAB 60 67 HA NORD - ATM",
-          amount: -7.85,
-          currency: "EUR",
-          status: "Completed"
-        }
-      ]
+      transactions: [],
+      newTransaction: {
+        description: "",
+        amount: 0,
+        currency: "",
+        status: ""
+      }
     };
+  },
+  methods: {
+    async addTransaction() {
+      await this.$apollo.mutate({
+        mutation: ADD_TRANSACTION,
+        variables: {
+          ...this.newTransaction,
+          amount: parseFloat(this.newTransaction.amount)
+        },
+        refetchQueries: () => [{ query: GET_TRANSACTION }]
+      });
+    }
+  },
+  apollo: {
+    transactions: GET_TRANSACTION
   }
 };
 </script>

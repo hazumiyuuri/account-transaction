@@ -25,8 +25,11 @@ export class TransactionResolver {
 
     @Mutation(returns => TransactionType)
     createTransaction(
-        @Args('createTransactionInput') createTransactionInput: CreateTransactionInput,
+        @Args('description') description: string,
+        @Args('amount') amount: number,
+        @Args('currency') currency: string,
+        @Args('status') status: string,
     ) {
-        return this.transactionService.createTransaction(createTransactionInput)
+        return this.transactionService.createTransaction({ description, amount, currency, status })
     }
 }

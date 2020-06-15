@@ -19,12 +19,11 @@ export class TransactionService {
         return this.transactionRepository.find();
     }
 
-    async createTransaction(createTransactionInput: CreateTransactionInput): Promise<Transaction> {
-        const { description, amount, currency, status } = createTransactionInput;
+    async createTransaction({ description, amount, currency, status }): Promise<Transaction> {
         const transaction = this.transactionRepository.create({
             id: uuid(),
             description,
-            amount,
+            amount: parseFloat(amount),
             currency,
             status
         });

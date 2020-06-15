@@ -15,7 +15,7 @@ export class TransactionType {
     amount: number;
 
     @Field()
-    currency: number;
+    currency: string;
 
     @Field()
     status: string;
