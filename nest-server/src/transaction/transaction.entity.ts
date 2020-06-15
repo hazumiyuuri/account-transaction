@@ -9,11 +9,17 @@ export class Transaction {
     id: string;
 
     @Column()
-    name: string;
+    description: string;
 
     @Column()
-    startDate: string;
+    date: string = new Date().toISOString();
+
+    @Column("double")
+    amount: number;
 
     @Column()
-    endDate: string;
+    currency: string;
+
+    @Column()
+    status: string;
 }

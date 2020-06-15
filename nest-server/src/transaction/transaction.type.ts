@@ -6,11 +6,17 @@ export class TransactionType {
     id: string;
 
     @Field()
-    name: string;
+    description: string;
 
     @Field()
-    startDate: string;
+    date: string;
     
     @Field()
-    endDate: string;
+    amount: number;
+
+    @Field()
+    currency: number;
+
+    @Field()
+    status: string;
 }

@@ -5,13 +5,15 @@ import { MinLength, IsDateString } from 'class-validator';
 export class CreateTransactionInput {
     @MinLength(1)
     @Field()
-    name: string;
+    description: string;
 
-    @IsDateString()
     @Field()
-    startDate: string;
+    amount: number;
+    
+    @Field()
+    currency: string;
 
-    @IsDateString()
+    @MinLength(1)
     @Field()
-    endDate: string;
+    status: string;
 }

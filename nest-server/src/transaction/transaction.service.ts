@@ -20,12 +20,13 @@ export class TransactionService {
     }
 
     async createTransaction(createTransactionInput: CreateTransactionInput): Promise<Transaction> {
-        const { name, startDate, endDate } = createTransactionInput;
+        const { description, amount, currency, status } = createTransactionInput;
         const transaction = this.transactionRepository.create({
             id: uuid(),
-            name,
-            startDate,
-            endDate
+            description,
+            amount,
+            currency,
+            status
         });
 
         return this.transactionRepository.save(transaction);
