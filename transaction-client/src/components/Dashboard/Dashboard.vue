@@ -15,34 +15,36 @@
           leur montant respectif
         </p>
       </div>
-      <table class="table-auto">
-        <thead>
-          <tr>
-            <th class="px-4 py-2 text-left">Date</th>
-            <th class="px-4 py-2 text-left">Description</th>
-            <th class="px-4 py-2 text-center">Montant</th>
-            <th class="px-4 py-2 text-left">Currency</th>
-            <th class="px-4 py-2 text-left">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <template v-for="transaction in transactions">
-            <tr v-bind:key="transaction.id">
-              <td class="border px-4 py-2">{{ transaction.date }}</td>
-              <td class="border px-4 py-2">{{ transaction.description }}</td>
-              <td class="border px-4 py-2 text-right">
-                {{ transaction.amount }}
-              </td>
-              <td class="border px-4 py-2 text-center">
-                {{ transaction.currency }}
-              </td>
-              <td class="border px-4 py-2 text-center">
-                {{ transaction.status }}
-              </td>
+      <div>
+        <table class="table-auto">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 text-left">Date</th>
+              <th class="px-4 py-2 text-left">Description</th>
+              <th class="px-4 py-2 text-center">Montant</th>
+              <th class="px-4 py-2 text-left">Currency</th>
+              <th class="px-4 py-2 text-left">Status</th>
             </tr>
-          </template>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <template v-for="transaction in transactions">
+              <tr v-bind:key="transaction.id">
+                <td class="border px-4 py-2">{{ transaction.date }}</td>
+                <td class="border px-4 py-2">{{ transaction.description }}</td>
+                <td class="border px-4 py-2 text-right">
+                  {{ transaction.amount }}
+                </td>
+                <td class="border px-4 py-2 text-center">
+                  {{ transaction.currency }}
+                </td>
+                <td class="border px-4 py-2 text-center">
+                  {{ transaction.status }}
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
       <!-- <div class="flex flex-wrap -m-4">
         <div class="xl:w-1/4 md:w-1/2 p-4">
           <div class="bg-gray-100 p-6 rounded-lg">

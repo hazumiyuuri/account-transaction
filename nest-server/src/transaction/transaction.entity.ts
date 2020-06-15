@@ -1,7 +1,7 @@
 import { Entity, PrimaryColumn, Column, ObjectIdColumn } from "typeorm";
 
 @Entity()
-export class Lesson {
+export class Transaction {
     @ObjectIdColumn()
     _id: string;
 
