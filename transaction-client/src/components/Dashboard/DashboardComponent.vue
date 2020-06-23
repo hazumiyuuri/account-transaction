@@ -112,6 +112,11 @@
             </tr>
           </thead>
           <tbody>
+            <template v-if="transactions.length === 0">
+              <tr>
+                <td colspan="5" class="text-center px-4 py-2">No transaction found</td>
+              </tr>
+            </template>
             <template v-for="transaction in transactions">
               <tr v-bind:key="transaction.id">
                 <td class="border px-4 py-2">{{ transaction.date }}</td>

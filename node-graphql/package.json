@@ -11,6 +11,7 @@
     "graphpack": "^1.0.9"
   },
   "dependencies": {
+    "graphql-import": "^1.0.2",
     "uuid": "^8.1.0"
   }
 }

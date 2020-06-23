@@ -1,4 +1,4 @@
-# Query
+# Type
 type Transaction {
     id: String!
     description: String!
@@ -8,11 +8,14 @@ type Transaction {
     status: String!
 }
 
+
+# Query
 type Query {
     transactions: [Transaction!]!,
     transaction(id: ID!): Transaction!
 }
 
+# Mutation
 type Mutation {
     createTransaction(
         description: String!,
