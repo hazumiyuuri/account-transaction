@@ -17,6 +17,9 @@
       </div>
       <div>
         <form v-on:submit.prevent="addTransaction()" class="w-full max-w-lg">
+          <div class="w-full mb-6">
+            <span class="text-green-700 text-lg font-bold">Ajout d'une nouvelle transaction</span>
+          </div>
           <div class="flex flex-wrap mb-6">
             <div class="w-full md:w-1/2 mb-3 pr-3">
               <label
@@ -32,9 +35,6 @@
                 placeholder="Description"
                 v-model="newTransaction.description"
               />
-              <!-- <p class="text-red-500 text-xs italic">
-                    Please fill out this field.
-                  </p> -->
             </div>
             <div class="w-full md:w-1/2 mb-3 pl-3">
               <label
@@ -143,12 +143,7 @@ export default {
   data() {
     return {
       transactions: [],
-      newTransaction: {
-        description: "",
-        amount: 0,
-        currency: "",
-        status: ""
-      }
+      newTransaction: {}
     };
   },
   methods: {
@@ -161,6 +156,7 @@ export default {
         },
         refetchQueries: () => [{ query: GET_TRANSACTION }]
       });
+      this.newTransaction = {};
     }
   },
   apollo: {

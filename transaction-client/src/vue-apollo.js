@@ -10,6 +10,7 @@ const getHeaders = () => {
   }
   return headers;
 };
+
 // Create an http link:
 const link = new HttpLink({
   uri: "http://localhost:3000/graphql",
